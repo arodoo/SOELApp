@@ -4,15 +4,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+
+
+import { NavigationComponent } from './blocks/navigation/navigation.component';
+import { FooterComponent } from './blocks/footer/footer.component';
+import { HeaderComponent } from './script/header/header.component';
+import { ScriptComponent } from './script/script/script.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+ 
+    NavigationComponent,
+    FooterComponent,
     HeaderComponent,
-    FooterComponent
+    ScriptComponent,
+
   ],
   imports: [
     BrowserModule,
