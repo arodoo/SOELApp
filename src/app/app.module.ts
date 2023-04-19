@@ -8,8 +8,7 @@ import { HomeComponent } from './home/home.component';
 
 import { NavigationComponent } from './blocks/navigation/navigation.component';
 import { FooterComponent } from './blocks/footer/footer.component';
-import { HeaderComponent } from './script/header/header.component';
-import { ScriptComponent } from './script/script/script.component';
+import { ObrasComponent } from './components/obras/obras.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +17,8 @@ import { ScriptComponent } from './script/script/script.component';
  
     NavigationComponent,
     FooterComponent,
-    HeaderComponent,
-    ScriptComponent,
+    ObrasComponent,
+ 
 
   ],
   imports: [
