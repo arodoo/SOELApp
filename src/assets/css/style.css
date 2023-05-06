@@ -9,7 +9,7 @@
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display:700|Roboto:400");
 body {
   line-height: 1.2;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 15px;
   color: #4c4c4c;
@@ -20,7 +20,7 @@ p, .paragraph {
   color: #4c4c4c;
   font-size: 15px;
   line-height: 1.8;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 p-lg, .paragraph-lg {
   font-size: 22px;
@@ -28,7 +28,7 @@ p-lg, .paragraph-lg {
 
 h1, h2, h3, h4, h5, h6 {
   color: #000;
-  font-family: "Playfair Display", serif;
+  font-family: 'Lato', sans-serif;
   line-height: 1.2;
 }
 
@@ -69,7 +69,7 @@ h6, .h6 {
 /* Button style */
 .btn {
   font-size: 22px;
-  font-family: "Playfair Display", serif;
+  font-family: 'Lato', sans-serif;
   text-transform: capitalize;
   padding: 16px 44px;
   border-radius: 5px;
@@ -195,7 +195,7 @@ a:hover {
 }
 .section-title {
   margin-bottom: 80px;
-  font-family: "Playfair Display", serif;
+  font-family: 'Lato', sans-serif;
 }
 
 .bg-cover {
@@ -304,11 +304,11 @@ a:hover {
 }
 
 .font-secondary {
-  font-family: "Playfair Display", serif !important;
+  font-family: 'Lato', sans-serif !important;
 }
 
 .font-tertiary {
-  font-family: "Playfair Display", serif !important;
+  font-family: 'Lato', sans-serif !important;
 }
 
 .shadow {
@@ -412,7 +412,7 @@ textarea.form-control {
 }
 
 .navbar .nav-item .nav-link {
-  font-family: "Playfair Display", serif;
+  font-family: 'Lato', sans-serif;
   text-transform: uppercase;
   padding: 15px;
 }

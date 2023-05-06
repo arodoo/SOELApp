@@ -7,6 +7,21 @@ export class ConstructionService {
 
   private constructions: Construction[] = [
     {
+      id: 3,
+      nombre: "Parque solar",
+      fechaInicio: new Date("2023-01-15"),
+      fechaFin: new Date("2023-07-31"),
+      ubicacion: "Autopista Medellín - Bogotá",
+      descripcion: "Parque solar con capacidad de 5MW",
+      cliente: "Empresa de energía del valle",
+      presupuesto: 3000000,
+      costoReal: 2800000,
+      estado: "Completado",
+      img: [
+        {id: 1, url: "../../assets/images/obras/PETROMEX/PETROMEX01.jpg"},
+      ]
+    },
+    {
       id: 1,
       nombre: "Edificio de apartamentos",
       fechaInicio: new Date("2022-02-01"),
@@ -18,8 +33,7 @@ export class ConstructionService {
       costoReal: 950000,
       estado: "Completado",
       img: [
-        {id: 1, url: "https://www.eltiempo.com/files/article_main/files/crop/uploads/2019/10/16/5da6b1b9c85e5.r_1571245475729.0-0-1000-667.jpeg"},
-        {id: 2, url: "https://www.eltiempo.com/files/article_main/files/crop/uploads/2019/10/16/5da6b1b9c85e5.r_1571245475729.0-0-1000-667.jpeg"},
+        {id: 1, url: "../../assets/images/obras/5CEMENTOS/5cementos01.jpg"},
       ]
     },
     {
@@ -34,27 +48,11 @@ export class ConstructionService {
       costoReal: 4900000,
       estado: "En progreso",
       img: [
-        {id: 1, url: "https://www.eltiempo.com/files/article_main/files/crop/uploads/2019/10/16/5da6b1b9c85e5.r_1571245475729.0-0-1000-667.jpeg"},
-        {id: 2, url: "https://www.eltiempo.com/files/article_main/files/crop/uploads/2019/10/16/5da6b1b9c85e5.r_1571245475729.0-0-1000-667.jpeg"},
+        {id: 1, url: "../../assets/images/obras/AMAZON/AMAZON01.jpg"},
       ]
  
     },
-    {
-      id: 3,
-      nombre: "Parque solar",
-      fechaInicio: new Date("2023-01-15"),
-      fechaFin: new Date("2023-07-31"),
-      ubicacion: "Autopista Medellín - Bogotá",
-      descripcion: "Parque solar con capacidad de 5MW",
-      cliente: "Empresa de energía del valle",
-      presupuesto: 3000000,
-      costoReal: 2800000,
-      estado: "Completado",
-      img: [
-        {id: 1, url: "https://www.energias-renovables.com/fotos/1/parque-solar-1.jpg"},
-        {id: 2, url: "https://www.energias-renovables.com/fotos/1/parque-solar-2.jpg"},
-      ]
-    },
+
     {
       id: 4,
       nombre: "Planta de tratamiento de aguas",
@@ -67,7 +65,7 @@ export class ConstructionService {
       costoReal: 7500000,
       estado: "En progreso",
       img: [
-        {id: 1, url: "https://www.ambientum.com/wp-content/uploads/2019/10/depuracion-aguas-residuales.jpg"},
+        {id: 1, url: "../../assets/images/obras/GISS/GISS03.jpg"},
       ]
     },
   ];
@@ -94,7 +92,7 @@ export interface Construction {
   presupuesto?: number;
   costoReal?: number;
   estado: string;
-  img?: Imagen[];
+  img: Imagen[];
 }
 
 interface Imagen {

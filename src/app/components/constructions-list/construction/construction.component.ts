@@ -16,6 +16,8 @@ export class ConstructionComponent {
     ubicacion: '',
     descripcion: '',
     cliente: '',
-    estado: ''
+    estado: '',
+    
+    img: [{id: 0, url: ''}]
   };
 }
