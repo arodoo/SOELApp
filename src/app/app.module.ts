@@ -8,16 +8,29 @@ import { HomeComponent } from './home/home.component';
 
 import { NavigationComponent } from './blocks/navigation/navigation.component';
 import { FooterComponent } from './blocks/footer/footer.component';
-import { ObrasComponent } from './components/obras/obras.component';
+import { ConstructionsComponent } from './components/constructions/constructions.component';
+import { AboutComponent } from './components/about/about.component';
+import { ServicesComponent } from './components/services/services.component';
+import { ClientsLogosComponent } from './components/clients-logos/clients-logos.component';
+import { ConstructionsListComponent } from './components/constructions-list/constructions-list.component';
+import { ConstructionComponent } from './components/constructions-list/construction/construction.component';
+ 
+ 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
- 
     NavigationComponent,
     FooterComponent,
-    ObrasComponent,
+    ConstructionsComponent,
+    AboutComponent,
+    ServicesComponent,
+    ClientsLogosComponent,
+    ConstructionsListComponent,
+    ConstructionComponent,
+ 
+ 
  
 
   ],

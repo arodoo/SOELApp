@@ -1,11 +1,15 @@
-.h3home{
-    position: relative; /* para permitir el uso de z-index */
-    z-index: 1; /* para poner el texto encima de la imagen */
+.h3home {
+    position: relative;
+    /* para permitir el uso de z-index */
+    z-index: 1;
+    /* para poner el texto encima de la imagen */
 }
 
 
 .a1 {
-    
     height: 100%;
-  }
-  
+}
+
+.section{
+    padding-bottom: 1rem;
+}
