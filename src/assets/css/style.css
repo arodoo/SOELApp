@@ -96,27 +96,27 @@ h6, .h6 {
 }
 
 .btn-primary {
-  background: #41228e;
+  background: #2859ad;
   color: #fff;
 }
 .btn-primary:active {
-  background: #542cb7 !important;
+  background: #5275c8 !important;
 }
 .btn-primary:hover {
-  background: #542cb7;
+  background: #5275c8;
 }
 .btn-primary.focus, .btn-primary.active {
-  background: #542cb7 !important;
+  background: #5275c8 !important;
   box-shadow: none !important;
 }
 
 .btn-transparent {
   background: transparent;
-  color: #41228e;
+  color: #2859ad;
   font-weight: bold;
 }
 .btn-transparent:active, .btn-transparent:hover {
-  color: #41228e;
+  color: #2859ad;
 }
 
 body {
@@ -125,12 +125,12 @@ body {
 }
 
 ::-moz-selection {
-  background: #542cb7;
+  background: #5275c8;
   color: #fff;
 }
 
 ::selection {
-  background: #542cb7;
+  background: #5275c8;
   color: #fff;
 }
 
@@ -228,7 +228,7 @@ a:hover {
 }
 
 .bg-primary {
-  background: #001958 !important;
+  background: #2859ad !important;
 }
 
 .bg-gray {
@@ -396,7 +396,7 @@ textarea.form-control {
   transition: 0.3s ease;
 }
 .navigation.nav-bg {
-  background-color: #001958;
+  background-color: #2859ad;
   padding: 15px 100px;
 }
 @media (max-width: 991px) {

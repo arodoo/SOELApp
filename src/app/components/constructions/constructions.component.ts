@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Construction, ConstructionService } from 'src/app/services/construction.service';
 
 @Component({
   selector: 'app-constructions',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class ConstructionsComponent {
 
+  constructionsMain: Construction[] = [];
+
+  constructor(private constructionService: ConstructionService) { 
+    const constructionsMain = this.constructionService.getConstructionsMain();
+    if (constructionsMain.length > 0) {
+      this.constructionsMain = constructionsMain;
+    }
+  }
 }

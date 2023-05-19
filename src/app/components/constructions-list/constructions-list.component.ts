@@ -11,6 +11,7 @@ import { Construction } from 'src/app/services/construction.service';
 export class ConstructionsListComponent implements OnInit{
 
   constructions: Construction[] = [];
+  
   constructor(private constructionService: ConstructionService) { 
     const constructions = this.constructionService.getConstructions();
     if (constructions.length > 0) {

@@ -1,47 +1,14 @@
 <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-title">Obras</h2>
-      </div>
-
-      <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0 ">
-        <div class="card shadow text-center">
-          <img src="../../assets/images/obras/HOROMIL/HOROMIL01.jpg" alt="" height="240rem">
-          <div class="card-footer bg-white">
-            <h5 class="card-title">Instalación eléctrica molino de crudo HOROMIL cementos Cruz Azul lagunas. Oaxaca, México
-              México.</h5>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0 ">
-        <div class="card shadow text-center">
-          <img src="../../assets/images/obras/5CEMENTOS/5cementos01.jpg" alt="" height="240rem">
-          <div class="card-footer bg-white">
-            <h5 class="card-title">Red eléctrica provisional para línea 5 cementos cruz azul lagunas. Oaxaca, México</h5>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0 ">
-        <div class="card shadow text-center">
-          <img src="../../assets/images/obras/PETROMEX/PETROMEX01.jpg" alt="" height="240rem">
-          <div class="card-footer bg-white">
-            <h5 class="card-title">Instalación eléctrica de ½ tensión en PETROTEMEX Altamira. Tamaulipas, México</h5>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0 ">
-        <div class="card shadow text-center">
-          <img src="../../assets/images/obras/AMAZON/AMAZON01.jpg" alt="" height="240rem">
-          <div class="card-footer bg-white">
-            <h5 class="card-title">Instalación eléctrica como IST para Amazon. Querétaro, México</h5>
-          </div>
-        </div>
-      </div>
-
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h2 class="section-title">Obras</h2>
     </div>
-    <button class="btn btn-primary boton float-right" routerLink="/lista-obras">Todas las obras</button>
-
+    <div class="container">
+      <div class="row mx-auto"> <!-- Agrega la clase "mx-auto" para centrar el contenido -->
+        <app-construction-main class="col-md-4 mb-3" *ngFor="let constructionMain of constructionsMain"
+          [constructionMain]="constructionMain"></app-construction-main>
+      </div>
+    </div>
   </div>
+  <button class="btn btn-primary boton" routerLink="/lista-obras">Todas las obras</button>
+</div>

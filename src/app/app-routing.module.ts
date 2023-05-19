@@ -7,6 +7,7 @@ import { ConstructionsListComponent } from './components/constructions-list/cons
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
+  { path: 'home/:id', component: HomeComponent},
   { path: 'obras', component: ConstructionsComponent},
   {path: 'lista-obras', component: ConstructionsListComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'home' },

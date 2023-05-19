@@ -1,20 +1,38 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  width: 300px; /* Ajusta el ancho deseado */
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .card-img-top {
-    width: 100%;
-    height: auto; /* ajusta la altura según tus necesidades */
-    
-  }
+  width: 100%;
+  height: auto;
+}
 
-  
-  @media (max-width: 768px) {
-  .card-img-top {
-    width: 100%;
-    height: auto;
-  }
+.card-title {
+  font-size: 2.5rem;
+}
 
-    .card-title {
-        font-size: 2.5rem;
-    }
+.boton {
+  border-radius: 10px;
+  background-color: #2859ad;
+  font-size: large;
+}
 
-  
+.img-fixed-size {
+  height: 20rem;
+  width: 20rem;
+}
 
+.centered-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
