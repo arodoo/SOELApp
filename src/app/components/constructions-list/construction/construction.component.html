@@ -8,12 +8,16 @@
       <a  class="btn btn-primary boton" (click)="showPopup()">Ver detalles</a>
 
       <div class="popup" *ngIf="isPopupVisible">
+        
         <div class="popup-content">
-          <h3 class="detail-title"> {{construction.nombre}} </h3>
-          <p>Cliente: {{construction.cliente}} </p>
-          <p>{{construction.descripcion}}</p>
-          <p>Estado: {{construction.estado}} </p>
-          <img class="imgsInPopup" *ngFor="let image of construction.img" [src]="image.url" alt="Imagen">
+          <div class="info">
+                      <h3 class="detail-title"> {{construction.nombre}} </h3>
+                      <p>Cliente: {{construction.cliente}} </p>
+                      <p>{{construction.descripcion}}</p>
+                      <p>{{construction.ubicacion}}</p>
+                      <p>Estado: {{construction.estado}} </p>
+                      <img class="imgsInPopup" *ngFor="let image of construction.img" [src]="image.url" alt="Imagen">
+          </div>
 
 
 
