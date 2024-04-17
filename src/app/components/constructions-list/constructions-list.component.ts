@@ -1,7 +1,5 @@
-import { ConstructionService } from './../../services/construction.service';
+import { ConstructionService,Construction } from './../../services/construction.service';
 import { Component, OnInit } from '@angular/core';
-import { Cons } from 'rxjs';
-import { Construction } from 'src/app/services/construction.service';
 
 @Component({
   selector: 'app-constructions-list',

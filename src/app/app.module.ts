@@ -15,6 +15,7 @@ import { ClientsLogosComponent } from './components/clients-logos/clients-logos.
 import { ConstructionsListComponent } from './components/constructions-list/constructions-list.component';
 import { ConstructionComponent } from './components/constructions-list/construction/construction.component';
 import { ConstructionMainComponent } from './components/constructions/construction-main/construction-main.component';
+import { ServiceComponent } from './components/services/service/service.component';
  
  
 
@@ -31,6 +32,7 @@ import { ConstructionMainComponent } from './components/constructions/constructi
     ConstructionsListComponent,
     ConstructionComponent,
     ConstructionMainComponent,
+    ServiceComponent,
  
  
  

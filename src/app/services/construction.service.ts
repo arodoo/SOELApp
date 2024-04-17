@@ -21,6 +21,7 @@ export class ConstructionService {
       estado: "Completado",
       img: [
         {id: 1, url: "../../assets/images/obras/PETROMEX/PETROMEX01.jpg"},
+
       ]
     },
     {
@@ -57,17 +58,24 @@ export class ConstructionService {
 
     {
       id: 4,
-      nombre: "Planta de tratamiento de aguas",
+      nombre: "Instalación de subestación encapsulada GUISS",
       fechaInicio: new Date("2023-03-01"),
       fechaFin: new Date("2024-01-31"),
       ubicacion: "Calle 10, #35-50",
-      descripcion: "Planta de tratamiento de aguas residuales con capacidad de 1000m3/día",
-      cliente: "Empresa de acueducto y alcantarillado",
+      descripcion: "Subestación eléctrica principal de 115 KV planta cruz azul lagunas, Oaxaca, México",
+      cliente: "GISS",
       presupuesto: 8000000,
       costoReal: 7500000,
-      estado: "En progreso",
+      estado: "FINALIZADO",
       img: [
-        {id: 1, url: "../../assets/images/obras/GISS/GISS03.jpg"},
+        {id: 3, url: "../../assets/images/obras/GISS/GISS03.jpg"},
+        {id: 1, url: "../../assets/images/obras/GISS/GISS01.jpg"},
+        {id: 2, url: "../../assets/images/obras/GISS/GISS02.jpg"},
+        {id: 4, url: "../../assets/images/obras/GISS/GISS04.jpg"},
+        {id: 5, url: "../../assets/images/obras/GISS/GISS05.jpg"},
+        {id: 6, url: "../../assets/images/obras/GISS/GISS06.jpg"},
+        {id: 7, url: "../../assets/images/obras/GISS/GISS07.jpg"},
+        {id: 8, url: "../../assets/images/obras/GISS/GISS08.jpg"},
       ]
     },
   ];
@@ -122,6 +130,36 @@ export class ConstructionService {
 
   ];
 
+  
+  private services: Service[] = [
+
+    {
+      id: 1,
+      titulo: "Distribución y montaje",
+      icono:"fa fa-cogs",
+      descripcion: "Tableros y transformadores en 34.5, 13.8 y 4,16 KV.\n"+
+      "Distribución y montaje de centro de control de motores (CCM).\n"+
+      "Distribucion y montaje de Tableros varios (Cajas paracontrol de tableros de alumbrado, centros de carga, entreotros)."
+    },
+    {
+      id: 2,
+      titulo: "Canalización, cableado y conexionado de Motores",
+      icono:"fa fa-bolt",
+      descripcion: "Voltajes de media y baja tensión. \n"+
+      "Hidráulicas - Compresores - lubricación - Motores de BT. \n"+
+      "Tendido y etiquetado de Cables de fuerza para: Media y baja tensión. \n"+ 
+      "(AISLAMIENTO THW-LS 90 ºC - 600VCA) Baja tensión (blindados)"
+    },
+    {
+      id: 3,
+      titulo: "Elementos de campo (sensores RTDs Thermopares, sensores ultrasónicos, entre otros)",
+      icono:"fa fa-microchip",
+      descripcion: "Montaje, colocacion y conexión de instrumentos de campo: Tendido de cables de control, canalizaciones Charola - Tubería, montaje colocacion y conexión de iluminarias, cáluclo y diseño de iluminación. "
+    },
+  ];
+
+
+
   constructor() { }
 
   getConstructions(){
@@ -139,24 +177,37 @@ export class ConstructionService {
   getConstructionMain(idx: any){
     return this.constructionsMain[idx];
   }
+  getServices(){
+    return this.services;
+  }
+  getService(idx: any){
+    return this.services[idx];
+  }
 
 }
 
 export interface Construction {
-  id: number;
+  id?: number;
   nombre: string;
-  fechaInicio: Date;
-  fechaFin: Date;
+  fechaInicio?: Date;
+  fechaFin?: Date;
   ubicacion: string;
   descripcion: string;
   cliente: string;
   presupuesto?: number;
   costoReal?: number;
-  estado: string;
+  estado?: string;
   img: Imagen[];
 };
 
 interface Imagen {
   id: number;
   url: string;
+}
+
+export interface Service{
+  id: number;
+  titulo: string;
+  icono: string;
+  descripcion: string;
 }

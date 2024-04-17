@@ -20,4 +20,15 @@ export class ConstructionComponent {
     
     img: [{id: 0, url: ''}]
   };
+
+  isPopupVisible = false;
+
+  showPopup() {
+    this.isPopupVisible = true;
+  }
+
+  hidePopup() {
+    this.isPopupVisible = false;
+  }
+
 }
