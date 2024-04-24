@@ -33,10 +33,6 @@ import { ServiceComponent } from './components/services/service/service.componen
     ConstructionComponent,
     ConstructionMainComponent,
     ServiceComponent,
- 
- 
- 
-
   ],
   imports: [
     BrowserModule,
