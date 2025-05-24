@@ -1,30 +1,54 @@
-<header class="navigation fixed-top no-transparent">
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand font-tertiary h3" href="index.html"><img src="/assets/images/logo.png" alt="SOEL"
-        width="65rem" ></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar" 
+     [class.transparent]="!isScrolled" 
+     [class.scrolled]="isScrolled">
+  <div class="navbar-container">
+    <a class="navbar-brand" routerLink="/">
+      <img src="/assets/images/logo.png" alt="SOEL" width="65">
+    </a>
+    
+    <button class="navbar-toggle" 
+            type="button" 
+            (click)="toggleMobileMenu()"
+            [attr.aria-expanded]="isMobileMenuOpen"
+            aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse text-center" id="navigation">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.html">Inicio</a>
+    <div class="navbar-collapse" 
+         [class.show]="isMobileMenuOpen">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" 
+             routerLink="/" 
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{exact: true}"
+             (click)="closeMobileMenu()">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#about">Acerca de</a>
+          <a class="nav-link" 
+             routerLink="/about"
+             routerLinkActive="active"
+             (click)="closeMobileMenu()">Acerca de</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#constructions">Experiencia</a>
+          <a class="nav-link" 
+             routerLink="/constructions"
+             routerLinkActive="active"
+             (click)="closeMobileMenu()">Experiencia</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#services">Servicios</a>
+          <a class="nav-link" 
+             routerLink="/services"
+             routerLinkActive="active"
+             (click)="closeMobileMenu()">Servicios</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contáctanos</a>
+          <a class="nav-link" 
+             routerLink="/contact"
+             routerLinkActive="active"
+             (click)="closeMobileMenu()">Contáctanos</a>
         </li>
       </ul>
     </div>
-  </nav>
-</header>
+  </div>
+</nav>

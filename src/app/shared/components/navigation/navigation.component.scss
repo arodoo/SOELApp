@@ -1,4 +1,282 @@
-.no-transparent {
-    background-color: #2859ad; /* reemplaza con el color de fondo que desees */
+// Navigation styles - Higher specificity to override global styles
+:host .navbar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 1050 !important; // Higher than Bootstrap's default
+  transition: all 0.3s ease-in-out;
+  padding: 1rem 0;
+  
+  // Transparent state (when at top)
+  &.transparent {
+    background-color: transparent !important;
+    backdrop-filter: none;
   }
   
+  // Solid state (when scrolled)
+  &.scrolled {
+    background-color: #2859ad !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0 !important;
+  }
+}
+
+// Legacy class for compatibility
+.no-transparent {
+  background-color: #2859ad;
+}
+
+// Container and responsive layout
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Brand/Logo styles
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  flex-shrink: 0;
+  
+  img {
+    transition: all 0.3s ease;
+  }
+  
+  &:hover {
+    color: #f8f9fa;
+    
+    img {
+      transform: scale(1.05);
+    }
+  }
+}
+
+// Mobile menu toggle with custom hamburger
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  
+  &:focus {
+    outline: none;
+  }
+  
+  .navbar-toggler-icon {
+    display: block;
+    position: relative;
+    background: white;
+    height: 2px;
+    width: 100%;
+    transition: all 0.3s ease;
+    
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background: white;
+      height: 2px;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+    
+    &::before {
+      top: -8px;
+    }
+    
+    &::after {
+      top: 8px;
+    }
+  }
+  
+  // Animated hamburger to X transformation
+  &[aria-expanded="true"] .navbar-toggler-icon {
+    background: transparent;
+    
+    &::before {
+      transform: rotate(45deg);
+      top: 0;
+    }
+    
+    &::after {
+      transform: rotate(-45deg);
+      top: 0;
+    }
+  }
+}
+
+// Desktop navigation menu - always horizontal
+.navbar-collapse {
+  display: flex;
+  align-items: center;
+  
+  &.show {
+    display: flex;
+  }
+}
+
+// Navigation menu - horizontal by default for desktop
+.navbar-nav {
+  display: flex;
+  flex-direction: row; // Explicit horizontal layout for desktop
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+  align-items: center;
+  
+  .nav-item {
+    white-space: nowrap; // Prevent text wrapping
+    
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+      padding: 0.5rem 1rem;
+      display: inline-block;
+      
+      &:hover {
+        color: #f8f9fa;
+      }
+      
+      &.active {
+        color: #ffc107;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -5px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 80%;
+          height: 2px;
+          background-color: #ffc107;
+        }
+      }
+    }
+  }
+}
+
+// Large screens - ensure proper spacing
+@media (min-width: 992px) {
+  .navbar-nav {
+    gap: 2.5rem;
+  }
+  
+  .navbar-container {
+    padding: 0 2rem;
+  }
+}
+
+// Medium screens - maintain horizontal layout
+@media (min-width: 769px) and (max-width: 991px) {
+  .navbar-nav {
+    gap: 1.5rem;
+    
+    .nav-item .nav-link {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.95rem;
+    }
+  }
+}
+
+// Mobile styles - only apply on small screens
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: block;
+  }
+  
+  .navbar-collapse {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(40, 89, 173, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    
+    &.show {
+      display: block;
+      animation: slideDown 0.3s ease-out;
+    }
+  }
+  
+  // Only on mobile: vertical navigation
+  .navbar-nav {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    
+    .nav-item {
+      text-align: center;
+      
+      .nav-link {
+        display: block;
+        padding: 0.75rem 1rem;
+        border-radius: 4px;
+        
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        &.active::after {
+          display: none; // Remove underline on mobile
+        }
+      }
+    }
+  }
+  
+  .navbar-container {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-container {
+    padding: 0 0.5rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.25rem;
+    
+    img {
+      width: 50px;
+    }
+  }
+  
+  .navbar-nav {
+    gap: 0.75rem;
+  }
+}
+
+// Animation for mobile menu
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
