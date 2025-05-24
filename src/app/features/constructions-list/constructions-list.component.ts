@@ -24,10 +24,7 @@ export class ConstructionsListComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    const element = document.getElementById('begin');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+
   }
 
   showPopup(construction: Construction) {

@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterLink, RouterLinkActive, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -12,6 +12,9 @@ import { CommonModule } from '@angular/common';
 export class NavigationComponent implements OnInit, OnDestroy {
   isScrolled = false;
   isMobileMenuOpen = false;
+
+  // Add Router dependency
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.checkScrollPosition();
@@ -35,7 +38,12 @@ export class NavigationComponent implements OnInit, OnDestroy {
   }
 
   private checkScrollPosition() {
-    this.isScrolled = window.pageYOffset > 50;
+    // Always apply colored navbar on lista-obras page
+    if (this.router.url.includes('lista-obras')) {
+      this.isScrolled = true;
+    } else {
+      this.isScrolled = window.pageYOffset > 50;
+    }
   }
 
   toggleMobileMenu() {
