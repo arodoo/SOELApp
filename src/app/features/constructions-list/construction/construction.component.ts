@@ -1,8 +1,11 @@
 import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Construction } from 'src/app/core/services/construction.service';
 
 @Component({
   selector: 'app-construction',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './construction.component.html',
   styleUrls: ['./construction.component.scss']
 })

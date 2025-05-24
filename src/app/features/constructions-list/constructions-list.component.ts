@@ -1,8 +1,13 @@
 import { ConstructionService,Construction } from '../../core/services/construction.service';
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { ConstructionComponent } from './construction/construction.component';
 
 @Component({
   selector: 'app-constructions-list',
+  standalone: true,
+  imports: [CommonModule, RouterLink, ConstructionComponent],
   templateUrl: './constructions-list.component.html',
   styleUrls: ['./constructions-list.component.scss']
 })

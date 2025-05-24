@@ -1,8 +1,19 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AboutComponent } from '../about/about.component';
+import { ConstructionsComponent } from '../constructions/constructions.component';
+import { ServicesComponent } from '../services/services.component';
+import { ClientsLogosComponent } from '../../shared/components/clients-logos/clients-logos.component';
 
 @Component({
   selector: 'app-home',
+  standalone: true,
+  imports: [
+    AboutComponent, 
+    ConstructionsComponent, 
+    ServicesComponent, 
+    ClientsLogosComponent
+  ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })

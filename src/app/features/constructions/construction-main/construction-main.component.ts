@@ -3,6 +3,8 @@ import { Construction } from 'src/app/core/services/construction.service';
 
 @Component({
   selector: 'app-construction-main',
+  standalone: true,
+  imports: [],
   templateUrl: './construction-main.component.html',
   styleUrls: ['./construction-main.component.scss']
 })
