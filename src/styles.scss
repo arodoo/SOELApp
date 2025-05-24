@@ -1,7 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 
-body{
-    font-family: 'Lato', sans-serif;
-  }
-  
+// Fix overflow issues caused by parallax animations
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
 
+// Constrain parallax animations
+#parallax {
+  position: relative;
+  overflow: hidden;
+
+  .layer {
+
+    // Prevent layers from causing overflow
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+// Fix modal positioning
+.modal-dialog {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
