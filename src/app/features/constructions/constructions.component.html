@@ -1,41 +1,147 @@
-<div class="container">
+<div class="container-fluid py-5">
   <div class="row">
-    <div class="col-lg-12 text-center">
-      <h2 class="section-title">Obras</h2>
+    <div class="col-12 text-center mb-5">
+      <h2 class="section-title display-4 fw-bold">Obras Destacadas</h2>
+      <p class="lead text-muted">Conoce algunos de nuestros proyectos más importantes</p>
     </div>
-    <div class="container">
-      <div class="row mx-auto">
-        <div class="col-md-4 mb-3" *ngFor="let construction of constructionsMain">
-          <div class="padding-fixed">
-            <div class="card shadow text-center">
-              <img src="{{construction.img[0].url}}" alt="{{construction.nombre}}" class="card-img-top fixed-height-image">
+  </div>
+  
+  <div class="row g-4 mb-5">
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let construction of constructionsMain">
+      <div class="card h-100 shadow-sm border-0 hover-card">
+        <div class="position-relative overflow-hidden">
+          <img [src]="construction.img[0].url" 
+               [alt]="construction.nombre" 
+               class="card-img-top object-fit-cover"
+               style="height: 250px;">
+          <div class="position-absolute top-0 end-0 m-3">
+            <span class="badge bg-primary">{{construction.estado}}</span>
+          </div>
+        </div>
+        
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title fw-bold text-primary mb-3">{{construction.nombre}}</h5>
+          <p class="card-text text-muted flex-grow-1">{{construction.descripcion}}</p>
+          <div class="mt-auto">
+            <small class="text-muted d-block mb-2">
+              <i class="fas fa-map-marker-alt me-1"></i>{{construction.ubicacion}}
+            </small>
+            <small class="text-muted d-block mb-3">
+              <i class="fas fa-user me-1"></i>Cliente: {{construction.cliente}}
+            </small>
+            <button class="btn btn-primary w-100" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#constructionModal"
+                    (click)="showPopup(construction)">
+              <i class="fas fa-eye me-2"></i>Ver Detalles
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-12 text-center">
+      <button class="btn btn-outline-primary btn-lg px-5" routerLink="/lista-obras">
+        <i class="fas fa-th-large me-2"></i>Ver Todas las Obras
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap Modal for construction details -->
+<div class="modal fade" id="constructionModal" tabindex="-1" aria-labelledby="constructionModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content" *ngIf="selectedConstruction">
+      <div class="modal-header">
+        <h4 class="modal-title" id="constructionModalLabel">
+          <i class="fas fa-building me-2"></i>{{selectedConstruction.nombre}}
+        </h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12 col-lg-8">
+            <!-- Image Gallery -->
+            <div class="mb-4">
+              <h5 class="mb-3"><i class="fas fa-images me-2"></i>Galería de Imágenes</h5>
+              <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-3" *ngFor="let image of selectedConstruction.img; let i = index">
+                  <img [src]="image.url" 
+                       [alt]="'Imagen ' + (i + 1)" 
+                       class="img-fluid rounded shadow-sm"
+                       style="height: 150px; width: 100%; object-fit: cover;"
+                       data-bs-toggle="modal"
+                       data-bs-target="#imageModal"
+                       (click)="selectImage(image.url)">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-12 col-lg-4">
+            <!-- Project Details -->
+            <div class="card border-0 bg-light h-100">
               <div class="card-body">
-                <h3 class="card-title">{{construction.nombre}}</h3>
-                <div class="card-footer bg-white">
-                  <h5 class="card-title">{{construction.descripcion}}</h5>
-                  <a class="btn btn-primary boton mt-2" (click)="showPopup(construction)">Ver detalles</a>
+                <h5 class="mb-4"><i class="fas fa-info-circle me-2"></i>Detalles del Proyecto</h5>
+                
+                <div class="mb-3">
+                  <strong class="text-primary">Cliente:</strong>
+                  <p class="mb-0">{{selectedConstruction.cliente}}</p>
+                </div>
+                
+                <div class="mb-3">
+                  <strong class="text-primary">Ubicación:</strong>
+                  <p class="mb-0"><i class="fas fa-map-marker-alt me-1"></i>{{selectedConstruction.ubicacion}}</p>
+                </div>
+                
+                <div class="mb-3">
+                  <strong class="text-primary">Estado:</strong>
+                  <span class="badge bg-success ms-2">{{selectedConstruction.estado}}</span>
+                </div>
+                
+                <div class="mb-3">
+                  <strong class="text-primary">Descripción:</strong>
+                  <p class="mb-0">{{selectedConstruction.descripcion}}</p>
+                </div>
+                
+                <div *ngIf="selectedConstruction.fechaInicio" class="mb-3">
+                  <strong class="text-primary">Fecha de Inicio:</strong>
+                  <p class="mb-0">{{selectedConstruction.fechaInicio | date:'dd/MM/yyyy'}}</p>
+                </div>
+                
+                <div *ngIf="selectedConstruction.fechaFin" class="mb-3">
+                  <strong class="text-primary">Fecha de Finalización:</strong>
+                  <p class="mb-0">{{selectedConstruction.fechaFin | date:'dd/MM/yyyy'}}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          <i class="fas fa-times me-2"></i>Cerrar
+        </button>
+      </div>
     </div>
   </div>
-  <button class="btn btn-primary boton" routerLink="/lista-obras">Todas las obras</button>
-  
-  <!-- Popup for construction details -->
-  <div class="popup" *ngIf="isPopupVisible && selectedConstruction">
-    <div class="popup-content">
-      <div class="info">
-        <h3 class="detail-title">{{selectedConstruction.nombre}}</h3>
-        <p>Cliente: {{selectedConstruction.cliente}}</p>
-        <p>{{selectedConstruction.descripcion}}</p>
-        <p>{{selectedConstruction.ubicacion}}</p>
-        <p>Estado: {{selectedConstruction.estado}}</p>
-        <img class="imgsInPopup" *ngFor="let image of selectedConstruction.img" [src]="image.url" alt="Imagen">
+</div>
+
+<!-- Image Preview Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabel">Vista Previa</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <button (click)="hidePopup()" class="btn btn-primary btn-position-fixed">Cerrar</button>
+      <div class="modal-body text-center">
+        <img [src]="selectedImage" class="img-fluid" *ngIf="selectedImage">
+      </div>
     </div>
   </div>
 </div>

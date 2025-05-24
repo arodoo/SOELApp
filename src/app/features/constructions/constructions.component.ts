@@ -13,8 +13,8 @@ import { Construction, ConstructionService } from 'src/app/core/services/constru
 export class ConstructionsComponent {
 
   constructionsMain: Construction[] = [];
-  isPopupVisible = false;
   selectedConstruction: Construction | null = null;
+  selectedImage: string | null = null;
 
   constructor(private constructionService: ConstructionService) { 
     const constructionsMain = this.constructionService.getConstructionsMain();
@@ -25,11 +25,9 @@ export class ConstructionsComponent {
 
   showPopup(construction: Construction) {
     this.selectedConstruction = construction;
-    this.isPopupVisible = true;
   }
 
-  hidePopup() {
-    this.isPopupVisible = false;
-    this.selectedConstruction = null;
+  selectImage(imageUrl: string) {
+    this.selectedImage = imageUrl;
   }
 }

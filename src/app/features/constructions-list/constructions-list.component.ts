@@ -1,4 +1,4 @@
-import { ConstructionService,Construction } from '../../core/services/construction.service';
+import { ConstructionService, Construction } from '../../core/services/construction.service';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
@@ -10,11 +10,11 @@ import { RouterLink } from '@angular/router';
   templateUrl: './constructions-list.component.html',
   styleUrls: ['./constructions-list.component.scss']
 })
-export class ConstructionsListComponent implements OnInit{
+export class ConstructionsListComponent implements OnInit {
 
   constructions: Construction[] = [];
-  isPopupVisible = false;
   selectedConstruction: Construction | null = null;
+  selectedImage: string | null = null;
   
   constructor(private constructionService: ConstructionService) { 
     const constructions = this.constructionService.getConstructions();
@@ -23,7 +23,6 @@ export class ConstructionsListComponent implements OnInit{
     }
   }
   
-
   ngOnInit(): void {
     const element = document.getElementById('begin');
     if (element) {
@@ -33,11 +32,9 @@ export class ConstructionsListComponent implements OnInit{
 
   showPopup(construction: Construction) {
     this.selectedConstruction = construction;
-    this.isPopupVisible = true;
   }
 
-  hidePopup() {
-    this.isPopupVisible = false;
-    this.selectedConstruction = null;
+  selectImage(imageUrl: string) {
+    this.selectedImage = imageUrl;
   }
 }
