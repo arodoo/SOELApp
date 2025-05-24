@@ -3,19 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './features/home/home.component';
 
 
-import { NavigationComponent } from './blocks/navigation/navigation.component';
-import { FooterComponent } from './blocks/footer/footer.component';
-import { ConstructionsComponent } from './components/constructions/constructions.component';
-import { AboutComponent } from './components/about/about.component';
-import { ServicesComponent } from './components/services/services.component';
-import { ClientsLogosComponent } from './components/clients-logos/clients-logos.component';
-import { ConstructionsListComponent } from './components/constructions-list/constructions-list.component';
-import { ConstructionComponent } from './components/constructions-list/construction/construction.component';
-import { ConstructionMainComponent } from './components/constructions/construction-main/construction-main.component';
-import { ServiceComponent } from './components/services/service/service.component';
+import { NavigationComponent } from './shared/components/navigation/navigation.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { ConstructionsComponent } from './features/constructions/constructions.component';
+import { AboutComponent } from './features/about/about.component';
+import { ServicesComponent } from './features/services/services.component';
+import { ClientsLogosComponent } from './shared/components/clients-logos/clients-logos.component';
+import { ConstructionsListComponent } from './features/constructions-list/constructions-list.component';
+import { ConstructionComponent } from './features/constructions-list/construction/construction.component';
+import { ConstructionMainComponent } from './features/constructions/construction-main/construction-main.component';
+import { ServiceComponent } from './features/services/service/service.component';
+import { ContactComponent } from './features/contact/contact.component';
  
  
 
@@ -33,6 +34,7 @@ import { ServiceComponent } from './components/services/service/service.componen
     ConstructionComponent,
     ConstructionMainComponent,
     ServiceComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

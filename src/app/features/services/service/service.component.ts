@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Service } from 'src/app/services/construction.service';
+import { Service } from 'src/app/core/services/construction.service';
 
 @Component({
   selector: 'app-service',

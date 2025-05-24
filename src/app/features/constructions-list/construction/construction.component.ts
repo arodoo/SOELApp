@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Construction } from 'src/app/services/construction.service';
+import { Construction } from 'src/app/core/services/construction.service';
 
 @Component({
   selector: 'app-construction',
