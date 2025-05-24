@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ConstructionService, Service } from 'src/app/core/services/construction.service';
-import { ServiceComponent } from './service/service.component';
 
 @Component({
-  selector: 'app-services',
+  selector: 'app-company-services',
   standalone: true,
-  imports: [CommonModule, ServiceComponent],
-  templateUrl: './services.component.html',
-  styleUrls: ['./services.component.scss']
+  imports: [CommonModule],
+  templateUrl: './company-services.component.html',
+  styleUrls: ['./company-services.component.scss']
 })
-export class ServicesComponent implements OnInit {
+export class CompanyServicesComponent implements OnInit {
 
   services: Service[] = [];
+  isPopupVisible = false;
+  selectedService: Service | null = null;
 
   constructor(private constructionService: ConstructionService) {
     const services = this.constructionService.getServices();
@@ -26,5 +27,15 @@ export class ServicesComponent implements OnInit {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  }
+
+  showPopup(service: Service) {
+    this.selectedService = service;
+    this.isPopupVisible = true;
+  }
+
+  hidePopup() {
+    this.isPopupVisible = false;
+    this.selectedService = null;
   }
 }

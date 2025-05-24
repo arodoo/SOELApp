@@ -4,11 +4,38 @@
       <h2 class="section-title">Obras</h2>
     </div>
     <div class="container">
-      <div class="row mx-auto"> <!-- Agrega la clase "mx-auto" para centrar el contenido -->
-        <app-construction-main class="col-md-4 mb-3" *ngFor="let constructionMain of constructionsMain"
-          [constructionMain]="constructionMain"></app-construction-main>
+      <div class="row mx-auto">
+        <div class="col-md-4 mb-3" *ngFor="let construction of constructionsMain">
+          <div class="padding-fixed">
+            <div class="card shadow text-center">
+              <img src="{{construction.img[0].url}}" alt="{{construction.nombre}}" class="card-img-top fixed-height-image">
+              <div class="card-body">
+                <h3 class="card-title">{{construction.nombre}}</h3>
+                <div class="card-footer bg-white">
+                  <h5 class="card-title">{{construction.descripcion}}</h5>
+                  <a class="btn btn-primary boton mt-2" (click)="showPopup(construction)">Ver detalles</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <button class="btn btn-primary boton" routerLink="/lista-obras">Todas las obras</button>
+  
+  <!-- Popup for construction details -->
+  <div class="popup" *ngIf="isPopupVisible && selectedConstruction">
+    <div class="popup-content">
+      <div class="info">
+        <h3 class="detail-title">{{selectedConstruction.nombre}}</h3>
+        <p>Cliente: {{selectedConstruction.cliente}}</p>
+        <p>{{selectedConstruction.descripcion}}</p>
+        <p>{{selectedConstruction.ubicacion}}</p>
+        <p>Estado: {{selectedConstruction.estado}}</p>
+        <img class="imgsInPopup" *ngFor="let image of selectedConstruction.img" [src]="image.url" alt="Imagen">
+      </div>
+      <button (click)="hidePopup()" class="btn btn-primary btn-position-fixed">Cerrar</button>
+    </div>
+  </div>
 </div>

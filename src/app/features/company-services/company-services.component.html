@@ -1,0 +1,24 @@
+<div class="container">
+  <h2 class="section-title text-center">Servicios</h2>
+  <div class="row">
+    <div class="col-md-4 mb-4 mb-md-0" *ngFor="let service of services">
+      <div class="col-12 text-center">
+        <div class="card hover-shadow shadow">
+          <div class="card-body text-center px-4 py-5">
+            <i class="{{service.icono}} icon mb-5 d-inline-block"></i>
+            <h4 class="mb-4">{{service.titulo}}</h4>
+            <button class="btn btn-primary" (click)="showPopup(service)">Ver detalles</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup for service details -->
+  <div class="popup" *ngIf="isPopupVisible && selectedService">
+    <div class="popup-content">
+      <p>{{selectedService.descripcion}}</p>
+      <button (click)="hidePopup()" class="btn btn-primary btn-position-fixed">Cerrar</button>
+    </div>
+  </div>
+</div>

@@ -2,18 +2,19 @@ import { ConstructionService,Construction } from '../../core/services/constructi
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { ConstructionComponent } from './construction/construction.component';
 
 @Component({
   selector: 'app-constructions-list',
   standalone: true,
-  imports: [CommonModule, RouterLink, ConstructionComponent],
+  imports: [CommonModule, RouterLink],
   templateUrl: './constructions-list.component.html',
   styleUrls: ['./constructions-list.component.scss']
 })
 export class ConstructionsListComponent implements OnInit{
 
   constructions: Construction[] = [];
+  isPopupVisible = false;
+  selectedConstruction: Construction | null = null;
   
   constructor(private constructionService: ConstructionService) { 
     const constructions = this.constructionService.getConstructions();
@@ -30,5 +31,13 @@ export class ConstructionsListComponent implements OnInit{
     }
   }
 
+  showPopup(construction: Construction) {
+    this.selectedConstruction = construction;
+    this.isPopupVisible = true;
+  }
 
+  hidePopup() {
+    this.isPopupVisible = false;
+    this.selectedConstruction = null;
+  }
 }

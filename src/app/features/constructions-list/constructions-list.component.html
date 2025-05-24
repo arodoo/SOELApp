@@ -1,15 +1,18 @@
 <div class="white" id="begin"></div>
 
-
-
-
 <div class="container">
   <h1 class="section-title">Todas nuestras obras</h1>
 
   <div class="row">
     <ng-container *ngFor="let construction of constructions">
       <div class="col-md-4 mb-3">
-        <app-construction [construction]="construction"></app-construction>
+        <div class="card text-center">
+          <img src="{{construction.img[0].url}}" alt="{{construction.nombre}}" class="card-img-top img-fixed-size centered-image">
+          <div class="card-body d-flex flex-column align-items-center">
+            <h5 class="card-title">{{construction.nombre}}</h5>
+            <a class="btn btn-primary boton" (click)="showPopup(construction)">Ver detalles</a>
+          </div>
+        </div>
       </div>
     </ng-container>
     <div class="text-center">
@@ -17,5 +20,18 @@
     </div>
   </div>
 
-
+  <!-- Popup for construction details -->
+  <div class="popup" *ngIf="isPopupVisible && selectedConstruction">
+    <div class="popup-content">
+      <div class="info">
+        <h3 class="detail-title">{{selectedConstruction.nombre}}</h3>
+        <p>Cliente: {{selectedConstruction.cliente}}</p>
+        <p>{{selectedConstruction.descripcion}}</p>
+        <p>{{selectedConstruction.ubicacion}}</p>
+        <p>Estado: {{selectedConstruction.estado}}</p>
+        <img class="imgsInPopup" *ngFor="let image of selectedConstruction.img" [src]="image.url" alt="Imagen">
+      </div>
+      <button (click)="hidePopup()" class="btn btn-primary btn-position-fixed">Cerrar</button>
+    </div>
+  </div>
 </div>
