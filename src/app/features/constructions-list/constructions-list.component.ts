@@ -2,11 +2,12 @@ import { ConstructionService, Construction } from '../../core/services/construct
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, Router, ActivatedRoute } from '@angular/router';
+import { ConstructionModalComponent } from '../../shared/components/construction-modal/construction-modal.component';
 
 @Component({
   selector: 'app-constructions-list',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, ConstructionModalComponent],
   templateUrl: './constructions-list.component.html',
   styleUrls: ['./constructions-list.component.scss']
 })
@@ -50,7 +51,7 @@ export class ConstructionsListComponent implements OnInit, AfterViewInit {
     this.selectedConstruction = construction;
   }
 
-  selectImage(imageUrl: string) {
+  onImageSelected(imageUrl: string) {
     this.selectedImage = imageUrl;
   }
 }

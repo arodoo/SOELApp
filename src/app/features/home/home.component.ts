@@ -1,14 +1,14 @@
 import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { AboutComponent } from '../about/about.component';
 import { ConstructionsComponent } from '../constructions/constructions.component';
 import { CompanyServicesComponent } from '../company-services/company-services.component';
 import { ClientsLogosComponent } from '../../shared/components/clients-logos/clients-logos.component';
+import { FooterComponent } from '../../shared/components/footer/footer.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [AboutComponent, ConstructionsComponent, CompanyServicesComponent, ClientsLogosComponent],
+  imports: [AboutComponent, ConstructionsComponent, CompanyServicesComponent, ClientsLogosComponent, FooterComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -17,17 +17,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private parallaxInitialized = false;
   private parallaxElements: { [key: string]: { left: number, top: number } } = {};
 
-  constructor(private route: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit(): void {
-    // Handle route parameters for section navigation
-    this.route.params.subscribe(params => {
-      if (params['seccion']) {
-        setTimeout(() => {
-          this.scrollToSection(params['seccion']);
-        }, 100);
-      }
-    });
+    // Component initialization
   }
 
   ngAfterViewInit(): void {
@@ -42,13 +35,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     const parallaxBox = document.getElementById('parallax');
     if (parallaxBox) {
       parallaxBox.onmousemove = null;
-    }
-  }
-
-  private scrollToSection(section: string): void {
-    const element = document.getElementById(section);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 
