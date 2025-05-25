@@ -20,7 +20,7 @@ export class ConstructionsComponent implements OnInit {
   constructor(private constructionService: ConstructionService) {
     const constructions = this.constructionService.getConstructions();
     if (constructions.length > 0) {
-      this.constructionsMain = constructions.slice(0, 6);
+      this.constructionsMain = constructions.slice(0, 3); // Show only 3 featured constructions
     }
   }
 
