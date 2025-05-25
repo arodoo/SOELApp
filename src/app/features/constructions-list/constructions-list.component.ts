@@ -31,7 +31,7 @@ export class ConstructionsListComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     // Store the decision to scroll, but don't scroll yet
     this.route.queryParams.subscribe(params => {
-      if (params['from'] === 'home') {
+      if (params['desde'] === 'inicio') {
         this.shouldScrollToTop = true;
       }
     });

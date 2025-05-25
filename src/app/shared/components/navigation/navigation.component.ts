@@ -38,8 +38,8 @@ export class NavigationComponent implements OnInit, OnDestroy {
   }
 
   private checkScrollPosition() {
-    // Always apply colored navbar on lista-obras page
-    if (this.router.url.includes('lista-obras')) {
+    // Always apply colored navbar on todas-las-obras page
+    if (this.router.url.includes('todas-las-obras')) {
       this.isScrolled = true;
     } else {
       this.isScrolled = window.pageYOffset > 50;
