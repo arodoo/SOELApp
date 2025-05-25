@@ -1,24 +1,61 @@
-<div class="container">
-  <h2 class="section-title text-center">Servicios</h2>
+<div class="container-fluid py-5">
   <div class="row">
-    <div class="col-md-4 mb-4 mb-md-0" *ngFor="let service of services">
-      <div class="col-12 text-center">
-        <div class="card hover-shadow shadow">
-          <div class="card-body text-center px-4 py-5">
-            <i class="{{service.icono}} icon mb-5 d-inline-block"></i>
-            <h4 class="mb-4">{{service.titulo}}</h4>
-            <button class="btn btn-primary" (click)="showPopup(service)">Ver detalles</button>
+    <div class="col-12 text-center mb-5">
+      <h2 class="section-title display-4 fw-bold">Nuestros Servicios</h2>
+      <p class="lead text-muted">Ofrecemos una amplia gama de servicios especializados en construcción</p>
+    </div>
+  </div>
+  
+  <div class="row g-4 justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let service of services">
+      <div class="card h-100 shadow-sm border-0 hover-card">
+        <div class="card-body text-center px-4 py-5 d-flex flex-column">
+          <div class="service-icon mb-4">
+            <i class="{{service.icono}} display-1"></i>
+          </div>
+          <h4 class="card-title fw-bold mb-3">{{service.titulo}}</h4>
+          <p class="card-text text-muted flex-grow-1 mb-4">{{service.descripcion | slice:0:100}}...</p>
+          <div class="mt-auto">
+            <button class="btn btn-primary w-100" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#serviceModal"
+                    (click)="showPopup(service)">
+              <i class="fas fa-info-circle me-2"></i>Ver Detalles
+            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Popup for service details -->
-  <div class="popup" *ngIf="isPopupVisible && selectedService">
-    <div class="popup-content">
-      <p>{{selectedService.descripcion}}</p>
-      <button (click)="hidePopup()" class="btn btn-primary btn-position-fixed">Cerrar</button>
+<!-- Bootstrap Modal for service details -->
+<div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content" *ngIf="selectedService">
+      <div class="modal-header">
+        <h4 class="modal-title" id="serviceModalLabel">
+          <i class="{{selectedService.icono}} me-2"></i>{{selectedService.titulo}}
+        </h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12">
+            <div class="text-center mb-4">
+              <i class="{{selectedService.icono}} display-2"></i>
+            </div>
+            <p class="lead text-muted">{{selectedService.descripcion}}</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          <i class="fas fa-times me-2"></i>Cerrar
+        </button>
+      </div>
     </div>
   </div>
 </div>

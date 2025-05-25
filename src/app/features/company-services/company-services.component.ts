@@ -12,7 +12,6 @@ import { ConstructionService, Service } from 'src/app/core/services/construction
 export class CompanyServicesComponent implements OnInit {
 
   services: Service[] = [];
-  isPopupVisible = false;
   selectedService: Service | null = null;
 
   constructor(private constructionService: ConstructionService) {
@@ -31,11 +30,5 @@ export class CompanyServicesComponent implements OnInit {
 
   showPopup(service: Service) {
     this.selectedService = service;
-    this.isPopupVisible = true;
-  }
-
-  hidePopup() {
-    this.isPopupVisible = false;
-    this.selectedService = null;
   }
 }
