@@ -2,7 +2,7 @@
      [class.transparent]="!isScrolled" 
      [class.scrolled]="isScrolled">
   <div class="navbar-container">
-    <a class="navbar-brand" routerLink="/">
+    <a class="navbar-brand" (click)="scrollToSection('parallax', $event)" style="cursor: pointer;">
       <img src="/assets/images/logo.png" alt="SOEL" width="65">
     </a>
     
@@ -19,28 +19,23 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" 
-             routerLink="/" 
-             routerLinkActive="active"
-             [routerLinkActiveOptions]="{exact: true}"
-             (click)="closeMobileMenu()">Inicio</a>
+             (click)="scrollToSection('parallax', $event)"
+             style="cursor: pointer;">Inicio</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" 
-             routerLink="/acerca-de"
-             routerLinkActive="active"
-             (click)="closeMobileMenu()">Acerca de</a>
+             (click)="scrollToSection('about', $event)"
+             style="cursor: pointer;">Acerca de</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" 
-             routerLink="/experiencia"
-             routerLinkActive="active"
-             (click)="closeMobileMenu()">Experiencia</a>
+             (click)="scrollToSection('constructions', $event)"
+             style="cursor: pointer;">Experiencia</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" 
-             routerLink="/servicios"
-             routerLinkActive="active"
-             (click)="closeMobileMenu()">Servicios</a>
+             (click)="scrollToSection('services', $event)"
+             style="cursor: pointer;">Servicios</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" 

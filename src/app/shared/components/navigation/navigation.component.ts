@@ -13,7 +13,6 @@ export class NavigationComponent implements OnInit, OnDestroy {
   isScrolled = false;
   isMobileMenuOpen = false;
 
-  // Add Router dependency
   constructor(private router: Router) {}
 
   ngOnInit() {
@@ -52,5 +51,39 @@ export class NavigationComponent implements OnInit, OnDestroy {
 
   closeMobileMenu() {
     this.isMobileMenuOpen = false;
+  }
+
+  // Smooth scroll to section
+  scrollToSection(sectionId: string, event?: Event) {
+    if (event) {
+      event.preventDefault();
+    }
+    
+    // Close mobile menu if open
+    this.closeMobileMenu();
+    
+    // If not on home page, navigate to home first then scroll
+    if (!this.router.url.includes('inicio') && this.router.url !== '/') {
+      this.router.navigate(['/inicio']).then(() => {
+        setTimeout(() => {
+          this.performScroll(sectionId);
+        }, 100);
+      });
+    } else {
+      this.performScroll(sectionId);
+    }
+  }
+
+  private performScroll(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const navbarHeight = 80; // Account for fixed navbar height
+      const elementPosition = element.offsetTop - navbarHeight;
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
   }
 }
