@@ -3,12 +3,11 @@ import { AboutComponent } from '../about/about.component';
 import { ConstructionsComponent } from '../constructions/constructions.component';
 import { CompanyServicesComponent } from '../company-services/company-services.component';
 import { ClientsLogosComponent } from '../../shared/components/clients-logos/clients-logos.component';
-import { FooterComponent } from '../../shared/components/footer/footer.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [AboutComponent, ConstructionsComponent, CompanyServicesComponent, ClientsLogosComponent, FooterComponent],
+  imports: [AboutComponent, ConstructionsComponent, CompanyServicesComponent, ClientsLogosComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })

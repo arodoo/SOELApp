@@ -54,4 +54,21 @@ export class ConstructionsListComponent implements OnInit, AfterViewInit {
   onImageSelected(imageUrl: string) {
     this.selectedImage = imageUrl;
   }
+
+  goBackToConstructions() {
+    this.router.navigate(['/inicio']).then(() => {
+      setTimeout(() => {
+        const constructionsSection = document.getElementById('constructions');
+        if (constructionsSection) {
+          const navbarHeight = 80; // Account for fixed navbar height
+          const elementPosition = constructionsSection.offsetTop - navbarHeight;
+          
+          window.scrollTo({
+            top: elementPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    });
+  }
 }

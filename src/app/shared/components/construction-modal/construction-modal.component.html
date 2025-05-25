@@ -36,42 +36,42 @@
                 <h5 class="mb-4"><i class="fas fa-info-circle me-2"></i>Detalles del Proyecto</h5>
                 
                 <div class="mb-3">
-                  <strong class="text-primary">Cliente:</strong>
+                  <strong>Cliente:</strong>
                   <p class="mb-0">{{selectedConstruction.cliente}}</p>
                 </div>
                 
                 <div class="mb-3">
-                  <strong class="text-primary">Ubicación:</strong>
+                  <strong>Ubicación:</strong>
                   <p class="mb-0"><i class="fas fa-map-marker-alt me-1"></i>{{selectedConstruction.ubicacion}}</p>
                 </div>
                 
                 <div class="mb-3">
-                  <strong class="text-primary">Estado:</strong>
+                  <strong>Estado:</strong>
                   <span class="badge bg-success ms-2">{{selectedConstruction.estado}}</span>
                 </div>
                 
                 <div class="mb-3">
-                  <strong class="text-primary">Descripción:</strong>
+                  <strong>Descripción:</strong>
                   <p class="mb-0">{{selectedConstruction.descripcion}}</p>
                 </div>
                 
                 <div *ngIf="selectedConstruction.fechaInicio" class="mb-3">
-                  <strong class="text-primary">Fecha de Inicio:</strong>
+                  <strong>Fecha de Inicio:</strong>
                   <p class="mb-0">{{selectedConstruction.fechaInicio | date:'dd/MM/yyyy'}}</p>
                 </div>
                 
                 <div *ngIf="selectedConstruction.fechaFin" class="mb-3">
-                  <strong class="text-primary">Fecha de Finalización:</strong>
+                  <strong>Fecha de Finalización:</strong>
                   <p class="mb-0">{{selectedConstruction.fechaFin | date:'dd/MM/yyyy'}}</p>
                 </div>
                 
                 <div *ngIf="selectedConstruction.presupuesto" class="mb-3">
-                  <strong class="text-primary">Presupuesto:</strong>
+                  <strong>Presupuesto:</strong>
                   <p class="mb-0">{{selectedConstruction.presupuesto | currency:'USD':'symbol':'1.0-0'}}</p>
                 </div>
                 
                 <div *ngIf="selectedConstruction.costoReal" class="mb-3">
-                  <strong class="text-primary">Costo Real:</strong>
+                  <strong>Costo Real:</strong>
                   <p class="mb-0">{{selectedConstruction.costoReal | currency:'USD':'symbol':'1.0-0'}}</p>
                 </div>
               </div>
