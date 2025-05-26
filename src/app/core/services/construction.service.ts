@@ -50,14 +50,14 @@ export class ConstructionService {
       costoReal: 950000,
       estado: "Completado",
       img: [
-        {id: 1, url: "../../assets/images/obras/5CEMENTOS/5cementos01.jpg"},
-        {id: 2, url: "../../assets/images/obras/5CEMENTOS/5cementos02.jpg"},
-        {id: 3, url: "../../assets/images/obras/5CEMENTOS/5cementos03.jpg"},
-        {id: 4, url: "../../assets/images/obras/5CEMENTOS/5cementos04.jpg"},
-        {id: 5, url: "../../assets/images/obras/5CEMENTOS/5cementos05.jpg"},
-        {id: 6, url: "../../assets/images/obras/5CEMENTOS/5cementos06.jpg"},
-        {id: 7, url: "../../assets/images/obras/5CEMENTOS/5cementos07.jpg"},
-        {id: 8, url: "../../assets/images/obras/5CEMENTOS/5cementos08.jpg"},
+        {id: 1, url: "../../assets/images/obras/5CEMENTOS/5CEMENTOS01.jpg"},
+        {id: 2, url: "../../assets/images/obras/5CEMENTOS/5CEMENTOS02.jpg"},
+        {id: 3, url: "../../assets/images/obras/5CEMENTOS/5CEMENTOS03.jpg"},
+        {id: 4, url: "../../assets/images/obras/5CEMENTOS/5CEMENTOS04.jpg"},
+        {id: 5, url: "../../assets/images/obras/5CEMENTOS/5CEMENTOS05.jpg"},
+        {id: 6, url: "../../assets/images/obras/5CEMENTOS/5CEMENTOS06.jpg"},
+        {id: 7, url: "../../assets/images/obras/5CEMENTOS/5CEMENTOS07.jpg"},
+        {id: 8, url: "../../assets/images/obras/5CEMENTOS/5CEMENTOS08.jpg"},
       ]
     },
     {
