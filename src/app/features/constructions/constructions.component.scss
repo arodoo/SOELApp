@@ -11,12 +11,12 @@
   box-shadow: 0px 3px 3px rgba(84, 138, 255, 0.25);
 }
 
-// Modern responsive card styling
+// Simple responsive card styling for better large screen experience
 .responsive-card {
-  max-width: 400px;
-  margin: 0 auto;
   border-radius: 15px;
   transition: all 0.3s ease;
+  max-width: 100%;
+  padding: 2rem;
 
   // Animation delays for staggered appearance
   &[data-index='0'] {
@@ -30,21 +30,27 @@
   }
 }
 
-// Image container with aspect ratio control
+// Improved image sizing for large screens
 .card-image-container {
   position: relative;
   width: 100%;
   border-radius: 15px 15px 0 0;
+  height: 250px; // Base height
 
-  // Maintain aspect ratio across all devices
-  aspect-ratio: 16/10;
+  // Better heights for larger screens
+  @media (min-width: 992px) {
+    height: 300px;
+  }
 
-  @media (max-width: 576px) {
-    aspect-ratio: 4/3;
+  @media (min-width: 1200px) {
+    height: 350px;
+  }
+
+  @media (min-width: 1400px) {
+    height: 400px;
   }
 }
 
-// Responsive image sizing
 .responsive-image {
   width: 100%;
   height: 100%;
@@ -70,11 +76,13 @@
   }
 }
 
-// Hover effects for cards
+// Simple hover effects
 .hover-card {
+  transition: all 0.3s ease;
+
   &:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 
     .responsive-image {
       transform: scale(1.05);
@@ -85,18 +93,22 @@
 
       i {
         opacity: 1 !important;
-        transform: scale(1);
+        transform: scale(1.1);
       }
     }
   }
 }
 
-// Card body styling
+// Card body with better spacing for large screens
 .card-body {
   padding: 1.5rem;
 
   @media (min-width: 992px) {
     padding: 2rem;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 2.5rem;
   }
 }
 
@@ -116,7 +128,7 @@
   }
 }
 
-// Button styling
+// Enhanced button styling
 .btn-details {
   border-radius: 10px;
   font-weight: 600;
@@ -133,26 +145,30 @@
 }
 
 .btn-view-all {
-  border-radius: 12px;
+  border-radius: 50px;
+  padding: 0.75rem 2rem;
   font-weight: 600;
-  padding: 1rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
   background: linear-gradient(135deg, #2859ad, #5275c8);
   border: none;
-  transition: all 0.3s ease;
 
   &:hover {
-    background: linear-gradient(135deg, #1e4080, #3d5ba3);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(40, 89, 173, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   }
 }
 
 // Badge styling
 .badge {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
   padding: 0.5rem 0.8rem;
   border-radius: 20px;
-  font-weight: 500;
   backdrop-filter: blur(10px);
   background: rgba(40, 89, 173, 0.9) !important;
 }
@@ -172,53 +188,6 @@
     height: 4px;
     background: linear-gradient(90deg, #2859ad, #5275c8);
     border-radius: 2px;
-  }
-}
-
-// Responsive grid adjustments
-@media (max-width: 1400px) {
-  .col-xl-3 {
-    max-width: 33.333333%;
-    flex: 0 0 33.333333%;
-  }
-}
-
-@media (max-width: 992px) {
-  .responsive-card {
-    max-width: 350px;
-  }
-
-  .section-title {
-    font-size: 2.5rem !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .responsive-card {
-    max-width: 300px;
-  }
-
-  .card-body {
-    padding: 1.25rem;
-  }
-
-  .section-title {
-    font-size: 2rem !important;
-  }
-}
-
-@media (max-width: 576px) {
-  .responsive-card {
-    max-width: 100%;
-  }
-
-  .card-body {
-    padding: 1rem;
-  }
-
-  .btn-view-all {
-    padding: 0.875rem 1.5rem;
-    font-size: 0.95rem;
   }
 }
 

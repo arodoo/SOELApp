@@ -7,7 +7,7 @@
   </div>
   
   <div class="row g-4 mb-5 justify-content-center">
-    <div class="col-12 col-md-6 col-lg-4 col-xl-4" *ngFor="let construction of constructionsMain; let i = index">
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let construction of constructionsMain; let i = index">
       <div class="card h-100 shadow-sm border-0 hover-card responsive-card" [attr.data-index]="i">
         <div class="position-relative overflow-hidden card-image-container">
           <img [src]="construction.img[0].url" 
